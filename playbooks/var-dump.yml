@@ -1,0 +1,9 @@
+---
+- name: Simple debug dump of variables passed from ACM to AAP
+  hosts: all
+  gather_facts: false
+  tasks:
+
+    - name: Dump all variables
+      debug:
+        var: hostvars[inventory_hostname]
