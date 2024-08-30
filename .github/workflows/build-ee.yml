@@ -3,12 +3,12 @@ name: EE build and push
 on:
   pull_request:
     paths:
-      - 'execution-environment/**'
+      - 'execution_environment/**'
   push:
     branches:
       - main
     paths:
-      - 'execution-environment/**'
+      - 'execution_environment/**'
 
   # Schedule workflow run at 00:00 on Sunday
   schedule:
@@ -26,7 +26,7 @@ jobs:
       REGISTRY_PATH: kenmoini
       EE_IMAGE_NAME: 'acm-aap-ee'
       EE_IMAGE_TAG: 'latest'
-      EE_FOLDER_NAME: 'execution-environment'
+      EE_FOLDER_NAME: 'execution_environment'
     secrets:
       REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
       REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
