@@ -1,0 +1,36 @@
+- name: Configure an AAP2 Controller for use of the included automation
+  hosts: localhost
+  connection: local
+
+  vars:
+  # Define following vars here, or in controller_configs/controller_auth.yml
+    controller_hostname: example-aap.apps.rosa-9ffvr.1jb0.p1.openshiftapps.com
+    controller_username: notadmin
+    controller_password: ozdyy312QUHRbHomF4cNFnWzisdMb4e6
+    controller_validate_certs: false
+
+    # Change to your fork of the RHDE ZTP project
+    project_scm_url: https://github.com/kenmoini/acm-aap-integration
+
+    # If not using the default organization, change this to the organization name that you have created
+    global_organization: Default
+
+  pre_tasks:
+    - name: Include vars from controller_configs directory
+      ansible.builtin.include_vars:
+        dir: ./vars
+        ignore_files: [controller_config.yml.template]
+        extensions: ["yml"]
+
+  roles:
+    - {role: infra.controller_configuration.execution_environments, when: controller_execution_environments is defined}
+    - {role: infra.controller_configuration.credentials, when: controller_credentials is defined}
+    - {role: infra.controller_configuration.applications, when: controller_applications is defined}
+
+    - {role: infra.controller_configuration.inventories, when: controller_inventories is defined}
+    - {role: infra.controller_configuration.hosts, when: controller_hosts is defined}
+    - {role: infra.controller_configuration.groups, when: controller_groups is defined}
+
+    - {role: infra.controller_configuration.projects, when: controller_projects is defined}
+    - {role: infra.controller_configuration.job_templates, when: controller_templates is defined}
+    - {role: infra.controller_configuration.workflow_job_templates, when: controller_workflows is defined}

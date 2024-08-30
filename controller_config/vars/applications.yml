@@ -1,0 +1,8 @@
+---
+controller_applications:
+  - name: "RHACM"
+    description: "Application used for token authentication between AAP and ACM services"
+    organization: "{{ global_organization }}"
+    state: "present"
+    client_type: "public"
+    authorization_grant_type: "password"

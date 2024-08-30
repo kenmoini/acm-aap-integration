@@ -1,0 +1,4 @@
+---
+controller_execution_environments:
+  - name: acm-aap
+    image: quay.io/kenmoini/acm-aap-ee:latest

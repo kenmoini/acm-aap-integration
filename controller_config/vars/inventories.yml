@@ -1,0 +1,5 @@
+---
+controller_inventories:
+  - name: RHACMSystems
+    organization: "{{ global_organization }}"
+    description: Managed systems for RHACM integration
