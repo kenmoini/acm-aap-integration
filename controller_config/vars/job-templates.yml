@@ -1,0 +1,13 @@
+---
+controller_templates:
+  - name: ACM Debug
+    organization: "{{ global_organization }}"
+    job_type: run
+    inventory: RHACMSystems
+    execution_environment: acm-aap
+    project: RHACM Integration
+    playbook: playbooks/var-dump.yml
+    become_enabled: true
+    ask_variables_on_launch: true
+    # credentials:
+    #   - RHDEMGMT
