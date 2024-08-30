@@ -6,4 +6,4 @@ collections:
   - name: community.crypto
   - name: kenmoini.redfish
   - name: kenmoini.phpipam
-  - name: kenmoini.powerdns_admin
+  #- name: kenmoini.powerdns_admin
